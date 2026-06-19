@@ -7165,7 +7165,7 @@ URL 是: %1</translation>
     <message>
       <location filename="../../pcsx2/ImGui/FullscreenUI.cpp" line="10155"/>
       <source>Anisotropic Filtering</source>
-      <translation>各异向性过滤</translation>
+      <translation>各向异性过滤</translation>
     </message>
     <message>
       <location filename="../../pcsx2/ImGui/FullscreenUI.cpp" line="10156"/>
@@ -16052,7 +16052,7 @@ Swap chain: see Microsoft&apos;s Terminology Portal.</extracomment>
     <message>
       <location filename="../Settings/GraphicsSettingsWidget.cpp" line="531"/>
       <source>Anisotropic Filtering</source>
-      <translation>各意向性过滤</translation>
+      <translation>各向异性过滤</translation>
     </message>
     <message>
       <location filename="../Settings/GraphicsSettingsWidget.cpp" line="532"/>
@@ -21046,6 +21046,16 @@ Slot 2: {}</source>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="60"/>
       <source>Sets the analog stick deadzone, i.e. the fraction of the stick movement which will be ignored.</source>
       <translation>设置模拟摇杆死区,即忽略的操纵杆移动的比例。</translation>
+    </message>
+    <message>
+      <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="63"/>
+      <source>Analog Anti-Deadzone</source>
+      <translation>模拟反死区</translation>
+    </message>
+    <message>
+      <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="64"/>
+      <source>Sets the minimum analog stick output after movement exceeds the deadzone.</source>
+      <translation>设置模拟摇杆移动超出死区后的最小输出值。</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="62"/>
