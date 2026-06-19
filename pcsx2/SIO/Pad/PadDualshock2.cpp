@@ -650,7 +650,7 @@ void PadDualshock2::Set(u32 index, float value)
 					posY = directionY * outputMagnitude;
 
 					const auto convert_axis = [](float axis) {
-						const u8 raw = static_cast<u8>(std::clamp(std::abs(axis) * 255.0f, 0.0f, 255.0f));
+						const u8 raw = static_cast<u8>(std::lroundf(std::clamp(std::abs(axis) * 255.0f, 0.0f, 255.0f)));
 						return static_cast<u8>((axis >= 0.0f) ? (127u + ((raw + 1u) / 2u)) : (127u - (raw / 2u)));
 					};
 
