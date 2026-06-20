@@ -44,7 +44,7 @@ public: // Public members
 	virtual void SetRawPressureButton(u32 index, const std::tuple<bool, u8> value) = 0;
 	virtual void SetAxisScale(float deadzone, float scale) = 0;
 	virtual void SetAxisAntiDeadzone(float) {}
-	virtual void SetTriggerAntiDeadzone(float) {}
+	virtual void SetButtonAntiDeadzone(float) {}
 	virtual float GetVibrationScale(u32 motor) const = 0;
 	virtual void SetVibrationScale(u32 motor, float scale) = 0;
 	virtual float GetPressureModifier() const = 0;

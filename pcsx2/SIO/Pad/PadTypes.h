@@ -102,7 +102,7 @@ namespace Pad
 	static constexpr float DEFAULT_STICK_DEADZONE = 0.0f;
 	static constexpr float DEFAULT_STICK_ANTI_DEADZONE = 0.0f;
 	static constexpr float DEFAULT_STICK_SCALE = 1.33f;
-	static constexpr float DEFAULT_TRIGGER_ANTI_DEADZONE = 0.0f;
+	static constexpr float DEFAULT_BUTTON_ANTI_DEADZONE = 0.0f;
 	static constexpr float DEFAULT_MOTOR_SCALE = 1.0f;
 	static constexpr float DEFAULT_PRESSURE_MODIFIER = 0.5f;
 	static constexpr float DEFAULT_BUTTON_DEADZONE = 0.0f;
