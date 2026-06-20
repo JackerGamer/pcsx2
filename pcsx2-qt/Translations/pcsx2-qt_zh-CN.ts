@@ -21080,6 +21080,16 @@ Slot 2: {}</source>
       <translation>设置用于激活按钮/扳机的死区,即将被忽略的扳机比例。</translation>
     </message>
     <message>
+      <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="81"/>
+      <source>Trigger Anti-Deadzone</source>
+      <translation>扳机反死区</translation>
+    </message>
+    <message>
+      <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="82"/>
+      <source>Sets the minimum L2/R2 output after the trigger exceeds the button/trigger deadzone.</source>
+      <translation>设置扳机超过按钮/扳机死区后 L2/R2 的最小输出值。</translation>
+    </message>
+    <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="78"/>
       <source>Pressure Modifier Amount</source>
       <translation>压力调节量</translation>

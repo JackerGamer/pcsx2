@@ -79,6 +79,7 @@ private:
 	// a way to simulate pressure sensitive controls.
 	float pressureModifier = 0.5f;
 	float buttonDeadzone = 0.0f;
+	float triggerAntiDeadzone = 0.0f;
 	// Used to store the last vibration mapping request the PS2 made for the small motor.
 	u8 smallMotorLastConfig = 0xff;
 	// Used to store the last vibration mapping request the PS2 made for the large motor.
@@ -142,6 +143,7 @@ public:
 	void SetRawPressureButton(u32 index, const std::tuple<bool, u8> value) override;
 	void SetAxisScale(float deadzone, float scale) override;
 	void SetAxisAntiDeadzone(float anti_deadzone) override;
+	void SetTriggerAntiDeadzone(float anti_deadzone) override;
 	float GetVibrationScale(u32 motor) const override;
 	void SetVibrationScale(u32 motor, float scale) override;
 	float GetPressureModifier() const override;
