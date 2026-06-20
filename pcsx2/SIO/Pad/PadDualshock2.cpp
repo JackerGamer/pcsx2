@@ -78,6 +78,9 @@ static const SettingInfo s_settings[] = {
 		TRANSLATE_NOOP("Pad", "Sets the deadzone for activating buttons/triggers, i.e. the fraction of the trigger "
 							  "which will be ignored."),
 		"0.00", "0.00", "1.00", "0.01", TRANSLATE_NOOP("Pad", "%.0f%%"), nullptr, nullptr, 100.0f},
+	{SettingInfo::Type::Float, "TriggerAntiDeadzone", TRANSLATE_NOOP("Pad", "Trigger Anti-Deadzone"),
+		TRANSLATE_NOOP("Pad", "Sets the minimum L2/R2 output after the trigger exceeds the button/trigger deadzone."),
+		"0.00", "0.00", "1.00", "0.01", TRANSLATE_NOOP("Pad", "%.0f%%"), nullptr, nullptr, 100.0f},
 	{SettingInfo::Type::Float, "PressureModifier", TRANSLATE_NOOP("Pad", "Pressure Modifier Amount"),
 		TRANSLATE_NOOP("Pad", "Sets the pressure when the modifier button is held."), "0.50", "0.01", "1.00", "0.01",
 		TRANSLATE_NOOP("Pad", "%.0f%%"), nullptr, nullptr, 100.0f},
@@ -672,9 +675,16 @@ void PadDualshock2::Set(u32 index, float value)
 	else if (IsTriggerKey(index))
 	{
 		const float s_value = std::clamp(value, 0.0f, 1.0f);
-		const float dz_value = (this->buttonDeadzone > 0.0f && s_value < this->buttonDeadzone) ? 0.0f : s_value;
-		this->rawInputs[index] = static_cast<u8>(dz_value * 255.0f);
-		if (dz_value > 0.0f)
+		float output_value = (s_value > 0.0f && s_value >= this->buttonDeadzone) ? s_value : 0.0f;
+		if (output_value > 0.0f && this->triggerAntiDeadzone > 0.0f)
+		{
+			const float normalized_value = (s_value >= 1.0f || this->buttonDeadzone >= 1.0f) ?
+				1.0f : (s_value - this->buttonDeadzone) / (1.0f - this->buttonDeadzone);
+			output_value = this->triggerAntiDeadzone + ((1.0f - this->triggerAntiDeadzone) * normalized_value);
+		}
+
+		this->rawInputs[index] = static_cast<u8>(std::lroundf(output_value * 255.0f));
+		if (output_value > 0.0f)
 			this->buttons &= ~(1u << bitmaskMapping[index]);
 		else
 			this->buttons |= (1u << bitmaskMapping[index]);
@@ -801,6 +811,11 @@ void PadDualshock2::SetPressureModifier(float mod)
 void PadDualshock2::SetButtonDeadzone(float deadzone)
 {
 	this->buttonDeadzone = deadzone;
+}
+
+void PadDualshock2::SetTriggerAntiDeadzone(float anti_deadzone)
+{
+	this->triggerAntiDeadzone = std::clamp(anti_deadzone, 0.0f, 1.0f);
 }
 
 void PadDualshock2::SetAnalogInvertL(bool x, bool y)
