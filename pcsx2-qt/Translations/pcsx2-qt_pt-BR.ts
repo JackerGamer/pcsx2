@@ -21101,8 +21101,8 @@ Slot 2: {}</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="64"/>
-      <source>Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent controllers, e.g. DualShock 4, Xbox One Controller.</source>
-      <translation>Define o fator de dimensionamento do eixo do direcional analógico. Um valor entre 130% e 140% é recomendado quando usar os controles recentes. Ex: Controle do DualShock 4, Xbox One.</translation>
+      <source>Sets the analog stick axis scaling factor.</source>
+      <translation>Define o fator de dimensionamento do eixo do direcional analógico.</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="68"/>

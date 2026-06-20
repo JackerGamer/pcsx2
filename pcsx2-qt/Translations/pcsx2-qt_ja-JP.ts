@@ -21088,8 +21088,8 @@ Slot 2: {}</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="64"/>
-      <source>Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent controllers, e.g. DualShock 4, Xbox One Controller.</source>
-      <translation>アナログスティックの軸の倍率を設定します。DualShock 4、Xbox One コントローラーのような最近のコントローラーを使用する場合は、130%〜140% の値をお勧めします。</translation>
+      <source>Sets the analog stick axis scaling factor.</source>
+      <translation>アナログスティックの軸の倍率を設定します。</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="68"/>

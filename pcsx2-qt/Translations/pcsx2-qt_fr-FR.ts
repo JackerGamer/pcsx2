@@ -21101,8 +21101,8 @@ Fente 2 : {}</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="64"/>
-      <source>Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent controllers, e.g. DualShock 4, Xbox One Controller.</source>
-      <translation>Définissez le multiplicateur des axes des joysticks analogiques. Nous vous recommandons de choisir une valeur comprise entre 130 % et 140 % lorsque vous utilisez une manette récente comme la DualShock 4 ou la manette Xbox One.</translation>
+      <source>Sets the analog stick axis scaling factor.</source>
+      <translation>Définissez le multiplicateur des axes des joysticks analogiques.</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="68"/>

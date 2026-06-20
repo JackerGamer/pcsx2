@@ -21101,8 +21101,8 @@ Slot 2: {}</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="64"/>
-      <source>Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent controllers, e.g. DualShock 4, Xbox One Controller.</source>
-      <translation>Stel die analoog stok as skaal faktoor. 'n Waarde tussen 130% en 140% is aanbeveel wanneer onlangse kontroleerders gebruik word, bv. DualShock 4, Xbox One Kontroleerder.</translation>
+      <source>Sets the analog stick axis scaling factor.</source>
+      <translation>Stel die analoog stok as skaal faktoor.</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="68"/>

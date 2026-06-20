@@ -21091,6 +21091,16 @@ Slot 2: {}</translation>
       <translation>設定模擬搖桿死區,即忽略的操縱桿移動的比例。</translation>
     </message>
     <message>
+      <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="63"/>
+      <source>Analog Anti-Deadzone</source>
+      <translation>模擬反死區</translation>
+    </message>
+    <message>
+      <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="64"/>
+      <source>Sets the minimum analog stick output after movement exceeds the deadzone.</source>
+      <translation>設定模擬搖桿移動超出死區後的最小輸出值。</translation>
+    </message>
+    <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="62"/>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="67"/>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="70"/>
@@ -21111,6 +21121,26 @@ Slot 2: {}</translation>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="75"/>
       <source>Sets the deadzone for activating buttons/triggers, i.e. the fraction of the trigger which will be ignored.</source>
       <translation>設定用於啟用按鈕/扳機的死區,即將被忽略的扳機比例。</translation>
+    </message>
+    <message>
+      <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="81"/>
+      <source>Button/Trigger Anti-Deadzone</source>
+      <translation>按鈕/扳機反死區</translation>
+    </message>
+    <message>
+      <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="82"/>
+      <source>Sets the minimum pressure-sensitive button/trigger output after it exceeds the deadzone.</source>
+      <translation>設定壓力感應按鈕/扳機超出死區後的最小輸出值。</translation>
+    </message>
+    <message>
+      <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="84"/>
+      <source>Button/Trigger Sensitivity</source>
+      <translation>按鈕/扳機靈敏度</translation>
+    </message>
+    <message>
+      <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="85"/>
+      <source>Sets the pressure-sensitive button/trigger scaling factor.</source>
+      <translation>設定壓力感應按鈕/扳機的縮放倍率。</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="78"/>
@@ -21134,8 +21164,8 @@ Slot 2: {}</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="64"/>
-      <source>Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent controllers, e.g. DualShock 4, Xbox One Controller.</source>
-      <translation type="unfinished">Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent controllers, e.g. DualShock 4, Xbox One Controller.</translation>
+      <source>Sets the analog stick axis scaling factor.</source>
+      <translation>設定模擬搖桿軸縮放倍率。</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="68"/>

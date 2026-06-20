@@ -21081,8 +21081,8 @@ Slot 2: {}</source>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="64"/>
-      <source>Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent controllers, e.g. DualShock 4, Xbox One Controller.</source>
-      <translation>아날로그 스틱 축 배율을 설정합니다. 듀얼 쇼크 4, 엑스박스 원 컨트롤러와 같은 최신 컨트롤러를 사용하는 경우 130%에서 140% 사이의 값을 사용하는 것이 좋습니다.</translation>
+      <source>Sets the analog stick axis scaling factor.</source>
+      <translation>아날로그 스틱 축 배율을 설정합니다.</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="68"/>

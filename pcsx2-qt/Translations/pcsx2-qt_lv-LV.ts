@@ -21112,8 +21112,8 @@ Slot 2: {}</source>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="64"/>
-      <source>Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent controllers, e.g. DualShock 4, Xbox One Controller.</source>
-      <translation>Iestata analogās sviras ass mērogošanas koeficientu. Lietojot jaunākos kontrolierus, piemēram, DualShock 4, Xbox One kontrolieri, ieteicamā vērtība ir no 130% līdz 140%.</translation>
+      <source>Sets the analog stick axis scaling factor.</source>
+      <translation>Iestata analogās sviras ass mērogošanas koeficientu.</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="68"/>

@@ -21885,8 +21885,8 @@ Hədəf sürəti 120%&apos;ə qurulub.</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="64"/>
-      <source>Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent controllers, e.g. DualShock 4, Xbox One Controller.</source>
-      <translation>Analoq çubuğu oxlarının öçəkləniş faktorunu qurur. DualShock 4, Xbox One Yönəldəni kimi son yönəldənlər üçün 130% və 140% arası dəyərlər önərilir.</translation>
+      <source>Sets the analog stick axis scaling factor.</source>
+      <translation>Analoq çubuğu oxlarının öçəkləniş faktorunu qurur.</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="68"/>
