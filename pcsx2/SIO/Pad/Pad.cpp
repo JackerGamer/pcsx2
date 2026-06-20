@@ -127,10 +127,12 @@ void Pad::LoadConfig(const SettingsInterface& si)
 		const float button_deadzone = si.GetFloatValue(section.c_str(), "ButtonDeadzone", Pad::DEFAULT_BUTTON_DEADZONE);
 		const float button_anti_deadzone = si.GetFloatValue(
 			section.c_str(), "ButtonAntiDeadzone", Pad::DEFAULT_BUTTON_ANTI_DEADZONE);
+		const float button_scale = si.GetFloatValue(section.c_str(), "ButtonScale", Pad::DEFAULT_BUTTON_SCALE);
 		pad->SetAxisScale(axis_deadzone, axis_scale);
 		pad->SetAxisAntiDeadzone(axis_anti_deadzone);
 		pad->SetButtonDeadzone(button_deadzone);
 		pad->SetButtonAntiDeadzone(button_anti_deadzone);
+		pad->SetButtonScale(button_scale);
 
 		if (ci->vibration_caps != Pad::VibrationCapabilities::NoVibration)
 		{

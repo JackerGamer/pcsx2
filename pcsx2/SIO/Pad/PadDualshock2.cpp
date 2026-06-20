@@ -64,10 +64,8 @@ static const SettingInfo s_settings[] = {
 		TRANSLATE_NOOP("Pad", "Sets the minimum analog stick output after movement exceeds the deadzone."),
 		"0.00", "0.00", "1.00", "0.01", TRANSLATE_NOOP("Pad", "%.0f%%"), nullptr, nullptr, 100.0f},
 	{SettingInfo::Type::Float, "AxisScale", TRANSLATE_NOOP("Pad", "Analog Sensitivity"),
-		TRANSLATE_NOOP("Pad",
-			"Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent "
-			"controllers, e.g. DualShock 4, Xbox One Controller."),
-		"1.33", "0.01", "2.00", "0.01", TRANSLATE_NOOP("Pad", "%.0f%%"), nullptr, nullptr, 100.0f},
+		TRANSLATE_NOOP("Pad", "Sets the analog stick axis scaling factor."),
+		"1.00", "0.01", "2.00", "0.01", TRANSLATE_NOOP("Pad", "%.0f%%"), nullptr, nullptr, 100.0f},
 	{SettingInfo::Type::Float, "LargeMotorScale", TRANSLATE_NOOP("Pad", "Large Motor Vibration Scale"),
 		TRANSLATE_NOOP("Pad", "Increases or decreases the intensity of low frequency vibration sent by the game."),
 		"1.00", "0.00", "2.00", "0.01", TRANSLATE_NOOP("Pad", "%.0f%%"), nullptr, nullptr, 100.0f},
@@ -81,6 +79,9 @@ static const SettingInfo s_settings[] = {
 	{SettingInfo::Type::Float, "ButtonAntiDeadzone", TRANSLATE_NOOP("Pad", "Button/Trigger Anti-Deadzone"),
 		TRANSLATE_NOOP("Pad", "Sets the minimum pressure-sensitive button/trigger output after it exceeds the deadzone."),
 		"0.00", "0.00", "1.00", "0.01", TRANSLATE_NOOP("Pad", "%.0f%%"), nullptr, nullptr, 100.0f},
+	{SettingInfo::Type::Float, "ButtonScale", TRANSLATE_NOOP("Pad", "Button/Trigger Sensitivity"),
+		TRANSLATE_NOOP("Pad", "Sets the pressure-sensitive button/trigger scaling factor."),
+		"1.00", "0.01", "2.00", "0.01", TRANSLATE_NOOP("Pad", "%.0f%%"), nullptr, nullptr, 100.0f},
 	{SettingInfo::Type::Float, "PressureModifier", TRANSLATE_NOOP("Pad", "Pressure Modifier Amount"),
 		TRANSLATE_NOOP("Pad", "Sets the pressure when the modifier button is held."), "0.50", "0.01", "1.00", "0.01",
 		TRANSLATE_NOOP("Pad", "%.0f%%"), nullptr, nullptr, 100.0f},
@@ -89,9 +90,9 @@ static const SettingInfo s_settings[] = {
 const Pad::ControllerInfo PadDualshock2::ControllerInfo = {Pad::ControllerType::DualShock2, "DualShock2",
 	TRANSLATE_NOOP("Pad", "DualShock 2"), ICON_PF_DUALSHOCK2, s_bindings, s_settings, Pad::VibrationCapabilities::LargeSmallMotors};
 
-static float ApplyButtonDeadzone(float value, float deadzone, float anti_deadzone)
+static float ApplyButtonInputSettings(float value, float scale, float deadzone, float anti_deadzone)
 {
-	const float clamped_value = std::clamp(value, 0.0f, 1.0f);
+	const float clamped_value = std::clamp(value * scale, 0.0f, 1.0f);
 	if (clamped_value <= 0.0f || clamped_value < deadzone)
 		return 0.0f;
 	if (anti_deadzone <= 0.0f)
@@ -687,7 +688,8 @@ void PadDualshock2::Set(u32 index, float value)
 	}
 	else if (IsTriggerKey(index))
 	{
-		const float output_value = ApplyButtonDeadzone(value, this->buttonDeadzone, this->buttonAntiDeadzone);
+		const float output_value = ApplyButtonInputSettings(
+			value, this->buttonScale, this->buttonDeadzone, this->buttonAntiDeadzone);
 		this->rawInputs[index] = static_cast<u8>(std::lroundf(output_value * 255.0f));
 		if (output_value > 0.0f)
 			this->buttons &= ~(1u << bitmaskMapping[index]);
@@ -698,7 +700,8 @@ void PadDualshock2::Set(u32 index, float value)
 	{
 		// Don't affect L2/R2, since they are analog on most pads.
 		const float pMod = ((this->buttons & (1u << Inputs::PAD_PRESSURE)) == 0 && !IsTriggerKey(index)) ? this->pressureModifier : 1.0f;
-		const float dzValue = ApplyButtonDeadzone(value, this->buttonDeadzone, this->buttonAntiDeadzone);
+		const float dzValue = ApplyButtonInputSettings(
+			value, this->buttonScale, this->buttonDeadzone, this->buttonAntiDeadzone);
 		this->rawInputs[index] = static_cast<u8>(std::lroundf(std::clamp(dzValue * pMod * 255.0f, 0.0f, 255.0f)));
 
 		if (dzValue > 0.0f)
@@ -821,6 +824,11 @@ void PadDualshock2::SetButtonDeadzone(float deadzone)
 void PadDualshock2::SetButtonAntiDeadzone(float anti_deadzone)
 {
 	this->buttonAntiDeadzone = std::clamp(anti_deadzone, 0.0f, 1.0f);
+}
+
+void PadDualshock2::SetButtonScale(float scale)
+{
+	this->buttonScale = std::max(scale, 0.0f);
 }
 
 void PadDualshock2::SetAnalogInvertL(bool x, bool y)

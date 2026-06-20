@@ -80,6 +80,7 @@ private:
 	float pressureModifier = 0.5f;
 	float buttonDeadzone = 0.0f;
 	float buttonAntiDeadzone = 0.0f;
+	float buttonScale = 1.0f;
 	// Used to store the last vibration mapping request the PS2 made for the small motor.
 	u8 smallMotorLastConfig = 0xff;
 	// Used to store the last vibration mapping request the PS2 made for the large motor.
@@ -144,6 +145,7 @@ public:
 	void SetAxisScale(float deadzone, float scale) override;
 	void SetAxisAntiDeadzone(float anti_deadzone) override;
 	void SetButtonAntiDeadzone(float anti_deadzone) override;
+	void SetButtonScale(float scale) override;
 	float GetVibrationScale(u32 motor) const override;
 	void SetVibrationScale(u32 motor, float scale) override;
 	float GetPressureModifier() const override;
