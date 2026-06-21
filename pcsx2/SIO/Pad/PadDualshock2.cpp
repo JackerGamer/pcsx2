@@ -90,19 +90,6 @@ static const SettingInfo s_settings[] = {
 const Pad::ControllerInfo PadDualshock2::ControllerInfo = {Pad::ControllerType::DualShock2, "DualShock2",
 	TRANSLATE_NOOP("Pad", "DualShock 2"), ICON_PF_DUALSHOCK2, s_bindings, s_settings, Pad::VibrationCapabilities::LargeSmallMotors};
 
-static float ApplyButtonInputSettings(float value, float scale, float deadzone, float anti_deadzone)
-{
-	const float clamped_value = std::clamp(value * scale, 0.0f, 1.0f);
-	if (clamped_value <= 0.0f || clamped_value < deadzone)
-		return 0.0f;
-	if (anti_deadzone <= 0.0f)
-		return clamped_value;
-
-	const float normalized_value = (clamped_value >= 1.0f || deadzone >= 1.0f) ?
-		1.0f : (clamped_value - deadzone) / (1.0f - deadzone);
-	return anti_deadzone + ((1.0f - anti_deadzone) * normalized_value);
-}
-
 void PadDualshock2::ConfigLog()
 {
 	const auto [port, slot] = sioConvertPadToPortAndSlot(unifiedSlot);
@@ -629,20 +616,16 @@ void PadDualshock2::Set(u32 index, float value)
 			// No point checking if we're at dead center (usually keyboard with no buttons pressed).
 			if (posX != 0.0f || posY != 0.0f)
 			{
-				const float magnitude = std::hypot(posX, posY);
-				bool inDeadzone = false;
-				if (dz > 0.0f)
-				{
-					// Compute the position that the edge of the deadzone circle would be at for this angle.
-					const float theta = std::atan2(posY, posX);
-					const float dzX = std::cos(theta) * dz;
-					const float dzY = std::sin(theta) * dz;
-					const bool inX = (posX < 0.0f) ? (posX > dzX) : (posX <= dzX);
-					const bool inY = (posY < 0.0f) ? (posY > dzY) : (posY <= dzY);
-					inDeadzone = inX && inY;
-				}
+				// Compute the angle and the position that the edge of the deadzone circle would be at.
+				const float theta = std::atan2(posY, posX);
+				const float directionX = std::cos(theta);
+				const float directionY = std::sin(theta);
+				const float dzX = directionX * dz;
+				const float dzY = directionY * dz;
+				const bool inX = (posX < 0.0f) ? (posX > dzX) : (posX <= dzX);
+				const bool inY = (posY < 0.0f) ? (posY > dzY) : (posY <= dzY);
 
-				if (inDeadzone)
+				if (dz > 0.0f && inX && inY)
 				{
 					// In deadzone. Set to 127 (center).
 					if (index <= Inputs::PAD_L_LEFT)
@@ -658,8 +641,7 @@ void PadDualshock2::Set(u32 index, float value)
 				{
 					// Remap from the deadzone edge to the edge of the stick's square range. This preserves
 					// direction and full-scale diagonal input while making adz the minimum output magnitude.
-					const float directionX = posX / magnitude;
-					const float directionY = posY / magnitude;
+					const float magnitude = std::hypot(posX, posY);
 					const float maximumMagnitude = 1.0f / std::max(std::abs(directionX), std::abs(directionY));
 					const float normalizedMagnitude = std::clamp((magnitude - dz) / (maximumMagnitude - dz), 0.0f, 1.0f);
 					const float outputMagnitude = adz + ((maximumMagnitude - adz) * normalizedMagnitude);
@@ -688,8 +670,8 @@ void PadDualshock2::Set(u32 index, float value)
 	}
 	else if (IsTriggerKey(index))
 	{
-		const float output_value = ApplyButtonInputSettings(
-			value, this->buttonScale, this->buttonDeadzone, this->buttonAntiDeadzone);
+		const float output_value = InputManager::ApplySingleBindingScale(
+			this->buttonScale, this->buttonDeadzone, this->buttonAntiDeadzone, value);
 		this->rawInputs[index] = static_cast<u8>(std::lroundf(output_value * 255.0f));
 		if (output_value > 0.0f)
 			this->buttons &= ~(1u << bitmaskMapping[index]);
@@ -700,8 +682,8 @@ void PadDualshock2::Set(u32 index, float value)
 	{
 		// Don't affect L2/R2, since they are analog on most pads.
 		const float pMod = ((this->buttons & (1u << Inputs::PAD_PRESSURE)) == 0 && !IsTriggerKey(index)) ? this->pressureModifier : 1.0f;
-		const float dzValue = ApplyButtonInputSettings(
-			value, this->buttonScale, this->buttonDeadzone, this->buttonAntiDeadzone);
+		const float dzValue = InputManager::ApplySingleBindingScale(
+			this->buttonScale, this->buttonDeadzone, this->buttonAntiDeadzone, value);
 		this->rawInputs[index] = static_cast<u8>(std::lroundf(std::clamp(dzValue * pMod * 255.0f, 0.0f, 255.0f)));
 
 		if (dzValue > 0.0f)

@@ -105,8 +105,6 @@ namespace InputManager
 	static bool ParseBindingAndGetSource(const std::string_view binding, InputBindingKey* key, InputSource** source);
 
 	static bool IsAxisHandler(const InputEventHandler& handler);
-	static float ApplySingleBindingScale(float sensitivity, float deadzone, float anti_deadzone, float value);
-
 	static void AddHotkeyBindings(SettingsInterface& si, bool is_profile);
 	static void AddPadBindings(SettingsInterface& si, u32 pad, bool is_profile);
 	static void AddUSBBindings(SettingsInterface& si, u32 port, bool is_profile);
