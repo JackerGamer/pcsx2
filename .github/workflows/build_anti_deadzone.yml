@@ -10,5 +10,6 @@ jobs:
     with:
       jobName: Anti-Deadzone Test
       artifactPrefixName: PCSX2-windows-Qt-x64-anti-deadzone
+      os: windows-2022
       configuration: Release AVX2
     secrets: inherit
