@@ -17328,11 +17328,6 @@ Swap chain: see Microsoft&apos;s Terminology Portal.</extracomment>
       <translation>死区:</translation>
     </message>
     <message>
-      <location filename="../Settings/InputBindingDialog.ui" line="125"/>
-      <source>Anti-Deadzone:</source>
-      <translation>反死区:</translation>
-    </message>
-    <message>
       <location filename="../Settings/InputBindingDialog.ui" line="138"/>
       <source>Add Binding</source>
       <translation>添加绑定</translation>
@@ -21086,23 +21081,13 @@ Slot 2: {}</source>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="81"/>
-      <source>Button/Trigger Anti-Deadzone</source>
-      <translation>按钮/扳机反死区</translation>
+      <source>Trigger Anti-Deadzone</source>
+      <translation>扳机反死区</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="82"/>
-      <source>Sets the minimum pressure-sensitive button/trigger output after it exceeds the deadzone.</source>
-      <translation>设置压力感应按钮/扳机超过死区后的最小输出值。</translation>
-    </message>
-    <message>
-      <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="84"/>
-      <source>Button/Trigger Sensitivity</source>
-      <translation>按钮/扳机灵敏度</translation>
-    </message>
-    <message>
-      <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="85"/>
-      <source>Sets the pressure-sensitive button/trigger scaling factor.</source>
-      <translation>设置压力感应按钮/扳机的缩放倍率。</translation>
+      <source>Sets the minimum L2/R2 output after the trigger exceeds the button/trigger deadzone.</source>
+      <translation>设置扳机超过按钮/扳机死区后 L2/R2 的最小输出值。</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="78"/>

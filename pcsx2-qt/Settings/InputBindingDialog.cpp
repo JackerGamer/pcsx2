@@ -45,16 +45,12 @@ InputBindingDialog::InputBindingDialog(SettingsInterface* sif, InputBindingInfo:
 			sif, m_ui.sensitivity, m_section_name, fmt::format("{}Scale", m_key_name), 100.0f, 1.0f);
 		ControllerSettingWidgetBinder::BindWidgetToInputProfileNormalized(
 			sif, m_ui.deadzone, m_section_name, fmt::format("{}Deadzone", m_key_name), 100.0f, 0.0f);
-		ControllerSettingWidgetBinder::BindWidgetToInputProfileNormalized(
-			sif, m_ui.antiDeadzone, m_section_name, fmt::format("{}AntiDeadzone", m_key_name), 100.0f, 0.0f);
 
 		connect(m_ui.sensitivity, &QSlider::valueChanged, this, &InputBindingDialog::onSensitivityChanged);
 		connect(m_ui.deadzone, &QSlider::valueChanged, this, &InputBindingDialog::onDeadzoneChanged);
-		connect(m_ui.antiDeadzone, &QSlider::valueChanged, this, &InputBindingDialog::onAntiDeadzoneChanged);
 
 		onSensitivityChanged(m_ui.sensitivity->value());
 		onDeadzoneChanged(m_ui.deadzone->value());
-		onAntiDeadzoneChanged(m_ui.antiDeadzone->value());
 	}
 	else
 	{
@@ -350,11 +346,6 @@ void InputBindingDialog::onSensitivityChanged(int value)
 void InputBindingDialog::onDeadzoneChanged(int value)
 {
 	m_ui.deadzoneValue->setText(tr("%1%").arg(value));
-}
-
-void InputBindingDialog::onAntiDeadzoneChanged(int value)
-{
-	m_ui.antiDeadzoneValue->setText(tr("%1%").arg(value));
 }
 
 void InputBindingDialog::onInputDeviceConnected(const QString& identifier, const QString& device_name)

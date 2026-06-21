@@ -173,9 +173,6 @@ namespace InputManager
 	/// positioning data from the controller instead of a mouse.
 	static constexpr u32 MAX_SOFTWARE_CURSORS = MAX_POINTER_BUTTONS + 2;
 
-	/// Applies sensitivity, deadzone, and anti-deadzone to a normalized one-dimensional input.
-	float ApplySingleBindingScale(float scale, float deadzone, float anti_deadzone, float value);
-
 	/// Returns a pointer to the external input source class, if present.
 	InputSource* GetInputSourceInterface(InputSourceType type);
 

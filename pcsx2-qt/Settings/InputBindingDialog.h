@@ -34,7 +34,6 @@ protected Q_SLOTS:
 
 	void onSensitivityChanged(int value);
 	void onDeadzoneChanged(int value);
-	void onAntiDeadzoneChanged(int value);
 
 	void onInputDeviceConnected(const QString& identifier, const QString& device_name);
 	void onInputDeviceDisconnected(const QString& identifier);
