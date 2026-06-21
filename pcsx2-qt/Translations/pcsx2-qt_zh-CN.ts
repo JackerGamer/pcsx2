@@ -21111,8 +21111,8 @@ Slot 2: {}</source>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="64"/>
-      <source>Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent controllers, e.g. DualShock 4, Xbox One Controller.</source>
-      <translation>设置模拟摇杆缩放倍率。使用诸如 DualShock 4、Xbox One 等最新的控制器时建议使用介于 130% 到 140% 之间的值。</translation>
+      <source>Sets the analog stick axis scaling factor.</source>
+      <translation>设置模拟摇杆轴缩放倍率。</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="68"/>

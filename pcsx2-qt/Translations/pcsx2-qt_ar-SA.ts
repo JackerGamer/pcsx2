@@ -21140,8 +21140,8 @@ Slot 2: {}</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="64"/>
-      <source>Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent controllers, e.g. DualShock 4, Xbox One Controller.</source>
-      <translation>تعيين عامل قياس محور العصا التناظري. يتم التوصية بالقيمة بين 130% و140% عند استخدام المتحكم الأخير، على سبيل المثال DualShock 4, Xbox One Controller.</translation>
+      <source>Sets the analog stick axis scaling factor.</source>
+      <translation>تعيين عامل قياس محور العصا التناظري.</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="68"/>

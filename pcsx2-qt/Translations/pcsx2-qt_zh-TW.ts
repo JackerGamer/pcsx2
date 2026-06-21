@@ -21049,6 +21049,16 @@ Slot 2: {}</translation>
       <translation>設定模擬搖桿死區,即忽略的操縱桿移動的比例。</translation>
     </message>
     <message>
+      <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="63"/>
+      <source>Analog Anti-Deadzone</source>
+      <translation>模擬反死區</translation>
+    </message>
+    <message>
+      <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="64"/>
+      <source>Sets the minimum analog stick output after movement exceeds the deadzone.</source>
+      <translation>設定模擬搖桿移動超出死區後的最小輸出值。</translation>
+    </message>
+    <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="62"/>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="67"/>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="70"/>
@@ -21069,6 +21079,16 @@ Slot 2: {}</translation>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="75"/>
       <source>Sets the deadzone for activating buttons/triggers, i.e. the fraction of the trigger which will be ignored.</source>
       <translation>設定用於啟用按鈕/扳機的死區,即將被忽略的扳機比例。</translation>
+    </message>
+    <message>
+      <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="81"/>
+      <source>Trigger Anti-Deadzone</source>
+      <translation>扳機反死區</translation>
+    </message>
+    <message>
+      <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="82"/>
+      <source>Sets the minimum L2/R2 output after the trigger exceeds the button/trigger deadzone.</source>
+      <translation>設定扳機超過按鈕/扳機死區後 L2/R2 的最小輸出值。</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="78"/>
@@ -21092,8 +21112,8 @@ Slot 2: {}</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="64"/>
-      <source>Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent controllers, e.g. DualShock 4, Xbox One Controller.</source>
-      <translation type="unfinished">Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent controllers, e.g. DualShock 4, Xbox One Controller.</translation>
+      <source>Sets the analog stick axis scaling factor.</source>
+      <translation>設定模擬搖桿軸縮放倍率。</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="68"/>

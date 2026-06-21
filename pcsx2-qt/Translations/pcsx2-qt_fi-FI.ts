@@ -21102,8 +21102,8 @@ Paikka 2: {}</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="64"/>
-      <source>Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent controllers, e.g. DualShock 4, Xbox One Controller.</source>
-      <translation>Määrittää analogisauvan akselien skaalaustekijän. Arvoa väliltä 130–140 % suositellaan uusien ohjainten käytössä, esim. DualShock 4 ja Xbox One -ohjaimet.</translation>
+      <source>Sets the analog stick axis scaling factor.</source>
+      <translation>Määrittää analogisauvan akselien skaalaustekijän.</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="68"/>

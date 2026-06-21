@@ -64,10 +64,8 @@ static const SettingInfo s_settings[] = {
 		TRANSLATE_NOOP("Pad", "Sets the minimum analog stick output after movement exceeds the deadzone."),
 		"0.00", "0.00", "1.00", "0.01", TRANSLATE_NOOP("Pad", "%.0f%%"), nullptr, nullptr, 100.0f},
 	{SettingInfo::Type::Float, "AxisScale", TRANSLATE_NOOP("Pad", "Analog Sensitivity"),
-		TRANSLATE_NOOP("Pad",
-			"Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent "
-			"controllers, e.g. DualShock 4, Xbox One Controller."),
-		"1.33", "0.01", "2.00", "0.01", TRANSLATE_NOOP("Pad", "%.0f%%"), nullptr, nullptr, 100.0f},
+		TRANSLATE_NOOP("Pad", "Sets the analog stick axis scaling factor."),
+		"1.00", "0.01", "2.00", "0.01", TRANSLATE_NOOP("Pad", "%.0f%%"), nullptr, nullptr, 100.0f},
 	{SettingInfo::Type::Float, "LargeMotorScale", TRANSLATE_NOOP("Pad", "Large Motor Vibration Scale"),
 		TRANSLATE_NOOP("Pad", "Increases or decreases the intensity of low frequency vibration sent by the game."),
 		"1.00", "0.00", "2.00", "0.01", TRANSLATE_NOOP("Pad", "%.0f%%"), nullptr, nullptr, 100.0f},
@@ -683,7 +681,7 @@ void PadDualshock2::Set(u32 index, float value)
 			output_value = this->triggerAntiDeadzone + ((1.0f - this->triggerAntiDeadzone) * normalized_value);
 		}
 
-		this->rawInputs[index] = static_cast<u8>(std::lroundf(output_value * 255.0f));
+		this->rawInputs[index] = static_cast<u8>(output_value * 255.0f);
 		if (output_value > 0.0f)
 			this->buttons &= ~(1u << bitmaskMapping[index]);
 		else

@@ -21105,8 +21105,8 @@ Ranura 2: {}</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="64"/>
-      <source>Sets the analog stick axis scaling factor. A value between 130% and 140% is recommended when using recent controllers, e.g. DualShock 4, Xbox One Controller.</source>
-      <translation>Establece el factor de escala de los ejes de los joysticks analógicos. Se recomienda un valor entre 130 % y 140 % al usar controles recientes, p. ej.: el DualShock 4 o el control de Xbox One.</translation>
+      <source>Sets the analog stick axis scaling factor.</source>
+      <translation>Establece el factor de escala de los ejes de los joysticks analógicos.</translation>
     </message>
     <message>
       <location filename="../../pcsx2/SIO/Pad/PadDualshock2.cpp" line="68"/>
