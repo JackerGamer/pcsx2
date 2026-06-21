@@ -17328,6 +17328,11 @@ Swap chain: see Microsoft&apos;s Terminology Portal.</extracomment>
       <translation>死区:</translation>
     </message>
     <message>
+      <location filename="../Settings/InputBindingDialog.ui" line="125"/>
+      <source>Anti-Deadzone:</source>
+      <translation>反死区:</translation>
+    </message>
+    <message>
       <location filename="../Settings/InputBindingDialog.ui" line="138"/>
       <source>Add Binding</source>
       <translation>添加绑定</translation>
